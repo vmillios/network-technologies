@@ -7,11 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $email = trim($_POST['email']);
     $password = $_POST['password'];
-}
+
     if (empty($email) || empty($password)) {
         die('Please fill all fields.');
     }
-
+    else {
     // Βρες τον χρήστη με βάση το email
     $db->query("SELECT * FROM users WHERE email = :email");
     $db->bind(':email', $email);
@@ -26,7 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     } else {
         echo "Invalid email or password.";
+        }
     }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
