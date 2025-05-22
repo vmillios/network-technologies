@@ -16,6 +16,8 @@ services:
       - ./app/google-callback.php:/var/www/html/google-callback.php
       - ./app/index.php:/var/www/html/index.php
       - ./app/signup.php:/var/www/html/signup.php
+      - ./app/login.php:/var/www/html/login.php
+
     networks:
       - app-network
     depends_on:

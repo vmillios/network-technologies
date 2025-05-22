@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 unset($_SESSION['google_user']);
 
                 // Redirect to dashboard or login page
-                header('Location: dashboard.php');
+                header('Location: login.php');
                 exit;
             } else {
                 $error = 'Something went wrong. Please try again.';

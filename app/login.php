@@ -2,6 +2,14 @@
 session_start();
 require_once 'database.php';
 
+// Get redirect URL from GET or session
+$redirect = $_GET['redirect'] ?? $_SESSION['redirect'] ?? 'dashboard.php';
+
+// Save redirect URL in session for POST requests
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $_SESSION['redirect'] = $redirect;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $db = new Database();
 
@@ -10,26 +18,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (empty($email) || empty($password)) {
         die('Please fill all fields.');
-    }
-    else {
-    // Βρες τον χρήστη με βάση το email
-    $db->query("SELECT * FROM users WHERE email = :email");
-    $db->bind(':email', $email);
-    $user = $db->single();
-
-    if ($user && password_verify($password, $user['password'])) {
-        // Login επιτυχής
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['user_email'] = $user['email'];
-        $_SESSION['user_name'] = $user['first_name'];
-        header("Location: dashboard.php");
-        exit;
     } else {
-        echo "Invalid email or password.";
+        $db->query("SELECT * FROM users WHERE email = :email");
+        $db->bind(':email', $email);
+        $user = $db->single();
+
+        if ($user && password_verify($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['user_email'] = $user['email'];
+
+            // Redirect to original page or dashboard
+            header("Location: " . $_SESSION['redirect']);
+            unset($_SESSION['redirect']); // clear redirect after use
+            exit;
+        } else {
+            echo "Invalid email or password.";
         }
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
