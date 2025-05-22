@@ -8,6 +8,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
       GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+    # this is for dev in prod this will be removed
     volumes:
       - ./app/about.html:/var/www/html/about.html
       - ./app/help.html:/var/www/html/help.html
