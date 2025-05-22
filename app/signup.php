@@ -65,6 +65,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <meta charset="UTF-8" />
   <title>Register</title>
+  <style>
+    body { font-family: Verdana, sans-serif; background-color: #39acc9; margin: 40px; }
+    h2 { color: #333; }
+    form { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 400px; }
+    label { display: block; margin-bottom: 10px; }
+    input { width: 100%; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px; }
+    button { background: #39acc9; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background: #2a8da5; }
+    .message { margin-top: 20px; padding: 10px; border-radius: 5px; }
+    .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+    .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+  </style>
 </head>
 <body>
   <h2>Register</h2>
