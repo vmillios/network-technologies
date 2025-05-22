@@ -6,10 +6,20 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
     volumes:
-      - ./app/:/var/www/html
+      - ./app/about.html:/var/www/html/about.html
+      - ./app/help.html:/var/www/html/help.html
+      - ./app/database.php:/var/www/html/database.php
+      - ./app/google-login.php:/var/www/html/google-login.php
+      - ./app/google-callback.php:/var/www/html/google-callback.php
+      - ./app/index.php:/var/www/html/index.php
+      - ./app/signup.php:/var/www/html/signup.php
     networks:
       - app-network
+    depends_on:
+      - mysql
 
   nginx:
     image: nginx:alpine
