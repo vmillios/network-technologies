@@ -8,6 +8,12 @@ RUN apt-get update && apt-get install -y \
     default-mysql-client \
     && docker-php-ext-install pdo_mysql
 
+# Install Composer globally
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+COPY ./app/composer.json /var/www/html/
+RUN composer install
+
 # Copy app files
 COPY ./app/ /var/www/html/
 
