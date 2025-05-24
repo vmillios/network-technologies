@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require_once 'database.php'; // your DB handler
 
 // Prefill variables from session if available
@@ -79,6 +81,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </style>
 </head>
 <body>
+  <?php
+  include 'navbar.php';
+  ?>
   <h2>Register</h2>
 
   <?php if (!empty($error)): ?>

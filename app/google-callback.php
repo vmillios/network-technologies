@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require_once 'vendor/autoload.php';
 require_once 'database.php'; // your DB handler
 
@@ -40,6 +42,7 @@ if (isset($_GET['code'])) {
         // User exists, redirect to dashboard
         $_SESSION['user_id'] = $existingUser['id'];
         $_SESSION['username'] = $existingUser['username'];
+        $_SESSION['username'] = $existingUser['username']
         header('Location: dashboard.php');
         exit;
     } else {

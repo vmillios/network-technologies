@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require_once 'database.php';
 
 // Get redirect URL from GET or session
@@ -26,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['user_email'] = $user['email'];
+            $_SESSION['username'] = $user['username'];
 
             // Redirect to original page or dashboard
             header("Location: " . $_SESSION['redirect']);
@@ -50,6 +53,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
+<?php
+include 'navbar.php';
+?>
   <h2>Login with email</h2>
   <form method="POST" action="login.php">
     <label>email <input type="email" name="email" required></label><br><br>
