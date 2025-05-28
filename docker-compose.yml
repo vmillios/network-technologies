@@ -18,6 +18,12 @@ services:
       - ./app/index.php:/var/www/html/index.php
       - ./app/signup.php:/var/www/html/signup.php
       - ./app/login.php:/var/www/html/login.php
+      - ./app/dashboard.php:/var/www/html/dashboard.php
+      - ./app/navbar.php:/var/www/html/navbar.php
+      - ./app/logout.php:/var/www/html/logout.php
+      - ./app/profile.php:/var/www/html/profile.php
+      - ./app/search.php:/var/www/html/search.php
+      - ./app/youtube_search.php:/var/www/html/youtube_search.php
     # volumes:
     #   - ./app/:/var/www/html/
     networks:

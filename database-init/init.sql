@@ -3,6 +3,27 @@ CREATE TABLE IF NOT EXISTS users (
     first_name VARCHAR(50) NOT NULL,
     last_name VARCHAR(50) NOT NULL,
     username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE
 );
+
+CREATE TABLE IF NOT EXISTS lists (
+    id int AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    list_name VARCHAR(50) NOT NULL,
+    public BOOLEAN NOT NULL DEFAULT 1,
+    FOREIGN KEY(user_id) REFERENCES users(id)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS items (
+    id int AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    list_id INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    video_id varchar(50) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(user_id) REFERENCES users(id)
+        ON DELETE CASCADE,
+    FOREIGN KEY(list_id) REFERENCES lists(id)
+        ON DELETE CASCADE
+)

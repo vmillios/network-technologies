@@ -15,6 +15,8 @@ $client->addScope('profile');
 $client->addScope('https://www.googleapis.com/auth/youtube.readonly');
 $client->addScope('https://www.googleapis.com/auth/userinfo.profile');
 $client->addScope('https://www.googleapis.com/auth/userinfo.email');
+$client->setAccessType('offline');
+$client->setPrompt('consent'); // This ensures you get a refresh token every time
 
 $authUrl = $client->createAuthUrl();
 
