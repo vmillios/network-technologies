@@ -41,6 +41,7 @@ if (session_status() == PHP_SESSION_NONE) {
         <div class='left'>
             <a href="dashboard.php">Dashboard</a>
             <a href="profile.php">Profile</a>
+            <a href="search.php">Search</a>
         </div>
         <div class='right'>
             <span><?php echo $_SESSION['username']?></span>
@@ -51,7 +52,6 @@ if (session_status() == PHP_SESSION_NONE) {
             <a href="index.php">Home</a>
         </div>
         <div class='right'>
-            <a href="signup.php">Register</a>
             <a href="login.php">Login</a>
         </div>
     <?php endif; ?>

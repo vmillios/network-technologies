@@ -21,11 +21,14 @@ if (!isset($_SESSION['user_id']) and !isset($_SESSION['user_email'])) {
     <meta charset="UTF-8">
     <title>Dashboard</title>
 </head>
+<head>
+    <title>YouTube Search via User Account</title>
+</head>
 <body>
-    
     <?php 
-    include 'navbar.php';
-    echo $_SESSION['user_email']; 
+        include 'navbar.php';
     ?>
+
+    <h1>under construction</h1>
 </body>
 </html>

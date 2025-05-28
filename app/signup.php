@@ -21,10 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $last_name = trim($_POST['last_name']);
     $username = trim($_POST['username']);
     $email = trim($_POST['email']);
-    $password = $_POST['password'];
 
     // Basic validation
-    if (empty($first_name) || empty($last_name) || empty($username) || empty($email) || empty($password)) {
+    if (empty($first_name) || empty($last_name) || empty($username) || empty($email)) {
         $error = 'Please fill all fields.';
     } else {
         // Check if username or email already exists
@@ -36,16 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($existingUser) {
             $error = 'Username or email already taken.';
         } else {
-            // Hash password
-            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
             // Insert new user
-            $db->query("INSERT INTO users (first_name, last_name, username, email, password) VALUES (:first_name, :last_name, :username, :email, :password)");
+            $db->query("INSERT INTO users (first_name, last_name, username, email) VALUES (:first_name, :last_name, :username, :email)");
             $db->bind(':first_name', $first_name);
             $db->bind(':last_name', $last_name);
             $db->bind(':username', $username);
             $db->bind(':email', $email);
-            $db->bind(':password', $passwordHash);
 
             if ($db->execute()) {
                 // Clear Google session info after signup
@@ -104,11 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </label><br><br>
 
     <label>Email:
-      <input type="email" name="email" value="<?= $email ?>" required>
-    </label><br><br>
-
-    <label>Password:
-      <input type="password" name="password" required>
+      <input type="email" name="email" value="<?= $email ?>" readonly>
     </label><br><br>
 
     <button type="submit">Register</button>
