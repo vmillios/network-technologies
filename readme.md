@@ -1,9 +1,25 @@
-# network-technologies
+# Rigganada - Τεχνολογιες Λογισμικου 2024-2025
 
-this is the project of the following members
+##  Μέλη Ομάδας
 
-- inf2022118
-- inf2022105
-- inf2022192
+- Μήλλιος Βασίλειος — `inf2022118`  
+- Γεώργιος Λιναρδάτος — `inf2022105`  
+- Μαργαρίτα Σουπιώνη — `inf2012192`
 
-for the network technologies course for the ionian university academic year 2024-2025
+
+## Microsoft Stream Video
+
+🎬 [Προσθέστε εδώ το Stream link με πλήρη πρόσβαση για αξιολόγηση]  
+
+---
+
+##  Οδηγίες Εκτέλεσης (Docker)
+
+1. **Απαραίτητο**: docker, containerd (linux) | docker-desktop (windows)
+2. Clone το Repository:
+3. Run the code
+
+```bash
+git clone https://github.com/vmillios/network-technologies
+docker compose up --build
+```
