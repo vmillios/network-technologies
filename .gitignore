@@ -1,3 +1,4 @@
 **/.env
 **/database
 **/vendor
+mydb_backup.sql

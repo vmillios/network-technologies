@@ -9,7 +9,7 @@
 
 ## Microsoft Stream Video
 
-🎬 [Προσθέστε εδώ το Stream link με πλήρη πρόσβαση για αξιολόγηση]  
+[ms stream link](https://ioniogr0-my.sharepoint.com/:v:/r/personal/inf2022118_ionio_gr/Documents/Recording-20250529_230931.webm?csf=1&web=1&e=OfS71V&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
 ---
 
